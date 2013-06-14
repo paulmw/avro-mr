@@ -23,8 +23,6 @@ public class WeatherMapper extends Mapper<LongWritable, Text, AvroKey<WeatherRec
 		weatherRecord.setTemperature(Integer.parseInt(parts[1]));
 		weatherRecord.setStationId(parts[2]);
 
-		avroWrapper.datum(weatherRecord);
-
 		context.write(avroWrapper, NullWritable.get());
 	}
 
